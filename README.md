@@ -1,27 +1,19 @@
-rakott
-===============================
+# Rakott (krumpli or káposzta)
+## Some utilities I use when I Science. Edit
 
-Version number: 0.0.1
-Author: [Yoav Ram](http://www.yoavram.com)
+- Version: 0.0.1
+- Author: [Yoav Ram](http://www.yoavram.com)
 
-Overview
---------
+## Overview
 
 Another layer on top of matplotlib
 
-Installation / Usage
---------------------
+## Install
 
 To install use pip:
 
     $ pip install https://github.com/yoavram/rakott.git
 
-Contributing
-------------
+## License
 
-TBD
-
-Example
--------
-
-TBD
+See [LICENSE.md](LICENSE.md)
