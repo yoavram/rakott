@@ -1,8 +1,8 @@
 rakott
 ===============================
 
-version number: 0.0.1
-author: Yoav Ram
+Version number: 0.0.1
+Author: [Yoav Ram](http://www.yoavram.com)
 
 Overview
 --------
@@ -14,14 +14,8 @@ Installation / Usage
 
 To install use pip:
 
-    $ pip install rakott
+    $ pip install https://github.com/yoavram/rakott.git
 
-
-Or clone the repo:
-
-    $ git clone https://github.com/yoavram/rakott.git
-    $ python setup.py install
-    
 Contributing
 ------------
 
