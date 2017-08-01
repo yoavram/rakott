@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def color_names(color_palette='Set1', names=('red','blue','green','purple','orange','yellow')):
     import seaborn as sns
     return {n:c for n, c in zip(
@@ -49,6 +51,15 @@ def greyscale_figure(input_filename, output_filename=None):
         output_filename = "{}_gray{}".format(fname, ext)
     Image.open(input_filename).convert('L').save(output_filename)
 
+def legend_out(ax, *args, **kwargs):
+    """https://stackoverflow.com/a/4701285/1063612
+    """
+    # Shrink current axis by 20%
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+    # Put a legend to the right of the current axis
+    return ax.legend(*args, loc='center left', bbox_to_anchor=(1, 0.5), **kwargs)
+
+
 if __name__ == '__main__':
-    color_names(set_globals=True)
-    assert 'blue' in globals()
+    pass
