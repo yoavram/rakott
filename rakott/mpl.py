@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 
 def color_names(color_palette='Set1', names=('red','blue','green','purple','orange','yellow')):
@@ -47,7 +48,7 @@ def greyscale_figure(input_filename, output_filename=None):
     """
     from PIL import Image
     if output_filename is None:
-        fname, ext = os.path.splitext(full_filename)
+        fname, ext = os.path.splitext(input_filename)
         output_filename = "{}_gray{}".format(fname, ext)
     Image.open(input_filename).convert('L').save(output_filename)
 
