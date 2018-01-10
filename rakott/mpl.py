@@ -9,15 +9,18 @@ def color_names(color_palette='Set1', names=('red','blue','green','purple','oran
     )}     
 
 def fig_xlabel(fig, label, xcoord=0.5, ycoord=0):
-    return fig.text(xcoord, ycoord, label, horizontalalignment='center', verticalalignment='bottom')
+    return fig.text(xcoord, ycoord, label, fontsize=plt.rcParams['axes.labelsize'],
+        horizontalalignment='center', verticalalignment='bottom')
 
 def fig_ylabel(fig, label, xcoord=0, ycoord=0.5):
-    return fig.text(xcoord, ycoord, label, rotation='vertical', horizontalalignment='right', verticalalignment='center')
+    return fig.text(xcoord, ycoord, label, fontsize=plt.rcParams['axes.labelsize'],
+        rotation='vertical', horizontalalignment='right', verticalalignment='center')
 
 def fig_panel_labels(axes, letters=None, uppercase=True, xcoord=-0.17, ycoord=0.92, panel_label_size=None):
     import string
     if panel_label_size is None:
-        panel_label_size = plt.rcParams[ 'axes.titlesize']*1.3
+        # TODO sometimes plt.rcParams['axes.titlesize'] is a string like 'large'
+        panel_label_size = plt.rcParams['axes.titlesize']*1.3
     if letters is None:
         if uppercase:
             letters = string.ascii_uppercase
@@ -52,14 +55,21 @@ def greyscale_figure(input_filename, output_filename=None):
         output_filename = "{}_gray{}".format(fname, ext)
     Image.open(input_filename).convert('L').save(output_filename)
 
-def legend_out(ax, *args, **kwargs):
+def legend_out(ax, *args, right=True, **kwargs):
     """https://stackoverflow.com/a/4701285/1063612
-    """
-    # Shrink current axis by 20%
+    """    
     box = ax.get_position()
-    ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
-    # Put a legend to the right of the current axis
-    return ax.legend(*args, loc='center left', bbox_to_anchor=(1, 0.5), **kwargs)
+    if right:
+        # Shrink current axis by 20%
+        ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+        # Put a legend to the right of the current axis
+        lg = ax.legend(*args, loc='center left', bbox_to_anchor=(1, 0.5), **kwargs)
+    else:
+        # Shrink current axis by 20%
+        ax.set_position([box.x0 + box.width * 0.2, box.y0, box.width * 0.8, box.height])
+        # Put a legend to the right of the current axis
+        lg = ax.legend(*args, loc='center right', bbox_to_anchor=(-0.1, 0.5), **kwargs)
+    return lg
 
 
 if __name__ == '__main__':
