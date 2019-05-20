@@ -1,5 +1,5 @@
 # Rakott (krumpli or káposzta)
-## Some utilities I use when I Science. Edit
+## Some Python utilities I use, mainly for computational science.
 
 - Version: 0.0.1
 - Author: [Yoav Ram](http://www.yoavram.com)
@@ -12,7 +12,7 @@ Another layer on top of matplotlib
 
 To install use pip:
 
-    $ pip install https://github.com/yoavram/rakott.git
+    $ pip install https://github.com/yoavram/rakott/archive/master.zip
 
 ## License
 
