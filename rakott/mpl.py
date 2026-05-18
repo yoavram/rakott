@@ -1,4 +1,5 @@
 import os
+import warnings
 import matplotlib.pyplot as plt
 
 def color_names(color_palette='Set1', names=('red','blue','green','purple','orange','yellow')):
@@ -9,10 +10,20 @@ def color_names(color_palette='Set1', names=('red','blue','green','purple','oran
     )}     
 
 def fig_xlabel(fig, label, xcoord=0.5, ycoord=0):
+    warnings.warn(
+        "rakott.mpl.fig_xlabel is deprecated; use matplotlib Figure.supxlabel instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     return fig.text(xcoord, ycoord, label, fontsize=plt.rcParams['axes.labelsize'],
         horizontalalignment='center', verticalalignment='bottom')
 
 def fig_ylabel(fig, label, xcoord=0, ycoord=0.5):
+    warnings.warn(
+        "rakott.mpl.fig_ylabel is deprecated; use matplotlib Figure.supylabel instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     return fig.text(xcoord, ycoord, label, fontsize=plt.rcParams['axes.labelsize'],
         rotation='vertical', horizontalalignment='right', verticalalignment='center')
 
